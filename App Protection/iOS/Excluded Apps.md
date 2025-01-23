@@ -13,3 +13,9 @@ Here's a summary based on the information from the web results:
 iOS URL Protocol: You need to use the URL protocol of the app to exempt it. This means adding the URL scheme string to the exemption list in the policy settings.
 
 *Remember, this exemption allows managed apps to transfer data to the specified unmanaged app using the iOS operating system's "Share" functionality or open links directly in the app. However, this does not affect restrictions like copy/paste unless explicitly configured otherwise.*
+
+**Update**
+See last paragragh of this section https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy-settings-ios#data-transfer-exemptions
+
+**This type of exemption would also ***still*** prevent users from using Open-in action within a managed app to share or save data to exempt app since it isn't based on iOS URL protocol. For more information about Open-in, see Use app protection with iOS apps.**
+
