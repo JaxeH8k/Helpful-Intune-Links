@@ -1,0 +1,1 @@
+https://learn.microsoft.com/en-us/microsoft-365/solutions/apps-config-step-7?view=o365-worldwide#recommended-investigation-flow
