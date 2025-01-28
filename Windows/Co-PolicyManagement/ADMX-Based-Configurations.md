@@ -1,0 +1,1 @@
+https://www.techtarget.com/searchenterprisedesktop/tip/Understanding-how-GPOs-and-Intune-interact
