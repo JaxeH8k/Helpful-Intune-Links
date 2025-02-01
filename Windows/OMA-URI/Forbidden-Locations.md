@@ -2,7 +2,9 @@ Good practice to test an ADMX locally via Local Group Policy editor to ensure it
 
 Forbidden locations in HKLM/HKCU: 
  System,
- Software\Microsoft
+
+ Software\Microsoft,
+ 
  Software\Policies\Microsoft keys
  
 Except for the following locations:
