@@ -1,11 +1,9 @@
 Good practice to test an ADMX locally via Local Group Policy editor to ensure it doesn't write the settings to a FORBIDDEN LOCATION.  If you dare do so, your system will begin throwing error 865 in the DeviceManagement-Enterprise-Diagnostics-Provider / Admin logs showing access denied.
 
 Forbidden locations in HKLM/HKCU: 
- System,
-
- Software\Microsoft,
- 
- Software\Policies\Microsoft keys
+System
+Software\Microsoft
+Software\Policies\Microsoft keys
  
 Except for the following locations:
 Software\Policies\Microsoft\Office\
