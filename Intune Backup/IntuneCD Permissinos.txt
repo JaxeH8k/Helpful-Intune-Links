@@ -1,0 +1,10 @@
+Permission Name	                                Type	        Description	                                                        Admin Consent Required
+DeviceManagementApps.Read.All	                Application	    Read Microsoft Intune apps	                                        Yes
+DeviceManagementConfiguration.Read.All	        Application	    Read Microsoft Intune device configuration and policies	            Yes
+DeviceManagementConfiguration.ReadWrite.All	    Application	    Read and write Microsoft Intune device configuration and policies	Yes
+DeviceManagementManagedDevices.Read.All	        Application	    Read Microsoft Intune devices	                                    Yes
+DeviceManagementRBAC.Read.All	                Application	    Read Microsoft Intune RBAC settings	                                Yes
+DeviceManagementServiceConfig.Read.All	        Application	    Read Microsoft Intune configuration	                                Yes
+Group.Read.All	                                Application	    Read all groups	                                                    Yes
+Policy.Read.All	                                Application	    Read your organizations policies	                                Yes
+Policy.Read.ConditionalAccess	                Application	    Read your organizations conditional access policies	                Yes
