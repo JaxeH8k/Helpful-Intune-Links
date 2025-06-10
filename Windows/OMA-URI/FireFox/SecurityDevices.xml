@@ -1,3 +1,4 @@
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SecurityDevices/SecurityDevices_Add
 <enabled />
 
 <data id="SecurityDevices" value="CAC&#xF000;C:\temp\DirtySocks.dll&#xF000;CAC x86&#xF000;C:\temp\LessDirtySocks.dll"/>
