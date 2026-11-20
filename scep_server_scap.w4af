@@ -1,0 +1,50 @@
+# w4af scan script for a lab NDES / SCEP server (IIS)
+# Run from the w4af folder, inside `pipenv shell`:
+#   ./w4af_console -s scep_scan.w4af
+
+plugins
+
+# --- Output: console, plus HTML and text reports ---
+output console, html_file, text_file
+output config html_file
+set output_file scep-report.html
+back
+output config text_file
+set output_file scep-report.txt
+set verbose False
+back
+output config console
+set verbose False
+back
+
+# --- Infrastructure: fingerprint IIS/.NET and the HTTP methods allowed ---
+# ms15_034 is left out on purpose: its probe can blue-screen an unpatched
+# HTTP.sys. Add it only after you've taken a VM snapshot.
+infrastructure server_header, allowed_methods, dot_net_errors, detect_reverse_proxy, fingerprint_WAF
+
+# --- Crawl: small site, so spider plus a light content-discovery pass ---
+crawl web_spider, robots_txt, dir_file_bruter, url_fuzzer
+crawl config web_spider
+set only_forward True
+back
+
+# --- Audit: TLS, risky methods, and input injection on the SCEP parameters ---
+audit ssl_certificate, xst, dav, htaccess_methods, generic, xss, sqli, lfi, os_commanding, response_splitting
+
+# --- Grep (passive): headers, errors and info leaks in every response ---
+grep strict_transport_security, click_jacking, csp, content_sniffing, strange_headers, error_pages, error_500, path_disclosure, private_ip, dot_net_event_validation, analyze_cookies, http_auth_detect, directory_indexing, html_comments, cache_control
+
+back
+
+# --- Target ---
+# The SCEP URLs are seeded directly so the audit plugins fuzz the
+# `operation` and `message` parameters even if the spider never links to them.
+target
+set target https://scep.jax3.net/,https://scep.jax3.net/certsrv/mscep/mscep.dll?operation=GetCACaps&message=test,https://scep.jax3.net/certsrv/mscep/mscep.dll?operation=GetCACert&message=test,https://scep.jax3.net/certsrv/mscep_admin/,https://scep.jax3.net/certsrv/
+set target_os windows
+set target_framework asp.net
+back
+
+start
+
+exit
